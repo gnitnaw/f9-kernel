@@ -4,7 +4,7 @@
 
 user-apps-dirs = \
 	l4test \
-	pingpong
+	led
 
 
 ifdef CONFIG_EXTI_INTERRUPT_TEST
