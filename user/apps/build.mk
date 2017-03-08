@@ -4,8 +4,6 @@
 
 user-apps-dirs = \
 	l4test \
-	led
-
 
 ifdef CONFIG_EXTI_INTERRUPT_TEST
 user-apps-dirs += \
@@ -13,6 +11,7 @@ user-apps-dirs += \
 else
 ifdef CONFIG_BOARD_STM32F429DISCOVERY
 user-apps-dirs += \
-	lcd_test
+	led	\
+
 endif
 endif

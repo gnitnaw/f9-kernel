@@ -5,8 +5,8 @@
 #include <l4/pager.h>
 #include <l4/thread.h>
 #include <l4io.h>
-#include <platform/stm32f429/gpio.h>
-#include <platform/stm32f429/rcc.h>
+#include INC_PLAT(gpio.h)
+#include INC_PLAT(rcc.h)
 
 #define STACK_SIZE 512
 
@@ -39,10 +39,19 @@ static void *main(void *user)
 }
 
 DECLARE_USER(
-    0,
+    8,
     led,
     main,
     DECLARE_FPAGE(0x0, 4 * UTCB_SIZE + 4 * STACK_SIZE)
     DECLARE_FPAGE(0x0, 512)
+    DECLARE_FPAGE(0x40005000, 0x1000)
+    DECLARE_FPAGE(0x40015000, 0x0c00)
+    DECLARE_FPAGE(0x40020000, 0x3c00)
+    DECLARE_FPAGE(0x40028000, 0x8000)
+    DECLARE_FPAGE(0x42470000, 0x0c00)
+    DECLARE_FPAGE(0x40016800, 0x0c00)
+    DECLARE_FPAGE(0xA0000000, 0x1000)
+    DECLARE_FPAGE(0xD0000000, 0xA0000)
+    DECLARE_FPAGE(0xD00A0000, 0xA0000)
 );
 
